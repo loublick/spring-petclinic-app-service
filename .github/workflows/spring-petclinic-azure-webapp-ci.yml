@@ -58,9 +58,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: './target/*.jar'
-
-#path: '${{ github.workspace }}/target/*.jar'
+          path: '/target/*.jar'
 
   deploy:
     permissions:
