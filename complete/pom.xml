@@ -215,7 +215,7 @@
           <subscriptionId>81cdd430-15ca-4d25-b270-7a89c0bc2b18</subscriptionId>
           <resourceGroup>rg-lab-dev</resourceGroup>
           <appName>wa-sp-as-dev</appName>
-          <pricingTier>F1</pricingTier>
+          <pricingTier>P1V2</pricingTier>
           <region>eastus</region>
           <appServicePlanName>asp-wa-spring-petclinic-as</appServicePlanName>
           <appServicePlanResourceGroup>rg-lab-dev</appServicePlanResourceGroup>
