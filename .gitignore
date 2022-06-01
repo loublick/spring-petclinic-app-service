@@ -43,3 +43,4 @@ _site/
 *.css
 !petclinic.css
 
+/.metadata/
