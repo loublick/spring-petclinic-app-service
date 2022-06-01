@@ -21,7 +21,8 @@
 name: CD Workflow - Spring Petclinic Azure App Service
 
 env:
-  AZURE_WEBAPP_NAME: wa-sp-as-stage     # Azure Web App name
+  AZURE_WEBAPP_NAME: wa-sp-as           # Azure Web App name
+  AZURE_WEBAPP_SLOT_NAME: stage         # Azure web app slot name
   JAVA_VERSION: '11'                    # Java version
   DISTRIBUTION: zulu                    # Java distribution
 
@@ -81,5 +82,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          slot-name: ${{ env.AZURE_WEBAPP_SLOT_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_STAGE }}
           package: '*.jar'
