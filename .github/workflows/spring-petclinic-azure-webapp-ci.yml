@@ -54,11 +54,14 @@ jobs:
       - name: Build with Maven
         run: mvn -DskipTests clean install
 
+      - name: Echo environment variables
+        run: echo "Github Workspace ${{ github.workspace }}"
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '/target/*.jar'
+          path: './complete/target/*.jar'
 
   deploy:
     permissions:
