@@ -33,11 +33,13 @@ on:
 permissions:
   contents: read
 
+ defaults:
+  run:
+    working-directory: ./complete
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      working-directory: ../complete
       
     steps:
       - uses: actions/checkout@v3
