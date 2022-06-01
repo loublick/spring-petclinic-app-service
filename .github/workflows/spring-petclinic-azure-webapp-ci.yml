@@ -11,6 +11,7 @@
 # 2. Create a secret in your repository named AZURE_WEBAPP_PUBLISH_PROFILE, paste the publish profile contents as the value of the secret.
 #    For instructions on obtaining the publish profile see: https://docs.microsoft.com/azure/app-service/deploy-github-actions#configure-the-github-secret
 #
+#
 # 3. Change the value for the AZURE_WEBAPP_NAME. Optionally, change the JAVA_VERSION environment variable below.
 #
 # For more information on GitHub Actions for Azure: https://github.com/Azure/Actions
@@ -23,7 +24,6 @@ env:
   AZURE_WEBAPP_NAME: wa-spring-petclinic-as   # Azure Web App name
   JAVA_VERSION: '11'                          # Java version
   DISTRIBUTION: zulu                          # Java distribution
-  WORKING_DIR: ./complete                     # Build/Test working directory
 
 on:
   push:
@@ -36,7 +36,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: ${{ env.WORKING_DIR }}
+    working-directory: ./complete
 
 jobs:
   build:
@@ -55,14 +55,11 @@ jobs:
       - name: Build with Maven
         run: mvn -DskipTests clean install
 
-      - name: Echo environment variables
-        run: echo "Working DIrectory ${{ env.WORKING_DIR }}"
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ env.WORKING_DIR }}/target/*.jar'
+          path: './complete/target/*.jar'
 
   deploy:
     permissions:
