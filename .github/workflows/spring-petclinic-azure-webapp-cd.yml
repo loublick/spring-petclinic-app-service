@@ -21,9 +21,9 @@
 name: CD Workflow - Spring Petclinic Azure App Service
 
 env:
-  AZURE_WEBAPP_NAME: wa-sp-as     # Azure Web App name
-  JAVA_VERSION: '11'              # Java version
-  DISTRIBUTION: zulu              # Java distribution
+  AZURE_WEBAPP_NAME: wa-sp-as-stage     # Azure Web App name
+  JAVA_VERSION: '11'                    # Java version
+  DISTRIBUTION: zulu                    # Java distribution
 
 on:
   push:
