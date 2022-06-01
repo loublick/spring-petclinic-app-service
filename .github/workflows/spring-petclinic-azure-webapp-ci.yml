@@ -20,18 +20,16 @@
 name: CI Workflow - Spring Petclinic Azure App Service
 
 env:
-  AZURE_WEBAPP_NAME: wa-spring-petclinic-as   # set this to the name of your Azure Web App
-  JAVA_VERSION: '11'                          # set this to the Java version to use
-  DISTRIBUTION: zulu                          # set this to the Java distribution
+  AZURE_WEBAPP_NAME: wa-spring-petclinic-as   # Azure Web App name
+  JAVA_VERSION: '11'                          # Java version
+  DISTRIBUTION: zulu                          # Java distribution
+  WORKING_DIR: ./complete                     # Build/Test working directory
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
-
-env:
-  WORKING_DIR: ./complete
 
 permissions:
   contents: read
