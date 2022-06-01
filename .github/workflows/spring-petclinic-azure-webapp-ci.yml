@@ -36,7 +36,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: ${{ WORKING_DIR }}
+    working-directory: ${{ env.WORKING_DIR }}
 
 jobs:
   build:
@@ -56,13 +56,13 @@ jobs:
         run: mvn -DskipTests clean install
 
       - name: Echo environment variables
-        run: echo "Working DIrectory ${{ WORKING_DIR }}"
+        run: echo "Working DIrectory ${{ env.WORKING_DIR }}"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ WORKING_DIR }}/target/*.jar'
+          path: '${{ env.WORKING_DIR }}/target/*.jar'
 
   deploy:
     permissions:
