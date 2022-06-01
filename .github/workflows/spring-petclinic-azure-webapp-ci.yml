@@ -37,7 +37,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: ./complete
+      working-directory: ../complete
       
     steps:
       - uses: actions/checkout@v3
